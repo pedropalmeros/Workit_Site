@@ -1,0 +1,30 @@
+@use 'variables' as v;
+
+@mixin mobile{
+    @media (min-width: v.$mobileSize){
+        @content;
+    }
+}
+
+@mixin tablet{
+    @media (min-width: v.$tabletSize){
+        @content;
+    }
+}
+
+@mixin desktop{
+    @media (min-width: v.$desktopSize){
+        @content;
+    }
+}
+
+@mixin underLineColored($lineColor){
+    display: inline-block;
+    &::after{
+        background-color: $lineColor;
+        content:'';
+        display: block;
+        height: 0.3rem;
+        width: 100%;
+    }
+}

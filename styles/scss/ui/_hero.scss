@@ -1,0 +1,91 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+.hero{
+    align-items: center;
+    background-color: v.$lightPrimaryColor;
+    height: 60vh;
+    overflow: hidden;
+    padding-bottom: 10rem;
+    padding-top: 4rem;
+    position: relative;
+
+    &__content{
+        position: relative;
+        z-index: 1;
+    }
+
+    &::before{
+        background: v.$primaryColor;
+        border-radius: 50%;
+        bottom: 0;
+        content: '';
+        height: 100vh;
+        left: 50%;
+        position: absolute;
+        transform: translateX(-50%) scale(15);
+        
+        transform-origin: bottom;
+        width: 100vh;
+    }
+
+    &__text{
+
+        font-family: v.$principalFont;
+        font-size: 4rem;
+        text-align: center;
+        
+        p{
+            color: v.$whiteColor;
+            line-height: 1.5;
+            margin: 0 auto;
+        }
+
+        @include m.tablet{
+            color: v.$whiteColor;
+            font-size: 5rem;
+        }
+
+        @include m.desktop{
+            color: v.$whiteColor;
+            font-size: 6rem;
+        }
+
+        &--underlined{
+            @include m.underLineColored(v.$secondaryColor);
+            color: v.$whiteColor;
+        }
+    }
+
+    &__button{
+        align-items: center;
+        background-color: v.$secondaryColor;
+        border: 1px solid v.$secondaryColor;
+        color: v.$primaryColor;
+        font-family: v.$secondaryFont;
+        padding: 1rem 2rem;
+        text-decoration: none;
+        z-index: 150;
+    }
+
+    &__button--container{
+        display: flex;
+        justify-content: center;
+        margin-top: 3rem;
+    }
+
+    &__curled-1{
+        left: -10rem;
+        position: absolute;
+        top: 0;
+        
+    }
+
+    &__curled-2{
+        position: absolute;
+        right:-5rem;
+        top: 15rem;
+    }
+
+
+}
